@@ -9,7 +9,7 @@ This documentation is regard the board game called Connect 4 and its features. T
 # Hardware Used
 **Model of hardware** : RaspberryPi 4 Model B <br>
 **Version** : Raspbian GNU Linux 10 Buster <br><br>
-![RaspberryPi](JUS/FinalSemProj/resources/rasp.PNG) <br>
+![RaspberryPi](/resources/rasp.PNG) <br>
 *Photo of Raspberry Pi*
 ---
 ---
