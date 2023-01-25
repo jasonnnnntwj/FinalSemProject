@@ -3,7 +3,7 @@
 This documentation is regard the board game called Connect 4 and its features. This GUI is made to control polarised motors to display the players move. There are 2 players for this game, Player 1 being white and player 2 being black. The game would automatically detect winning and each turn the images would be sent to the display panel.
 
 # Completed GUI
-![GUI](JUS/FinalSemProj/resources/8x8btn.PNG) <br>
+![GUI](/resources/8x8btn.PNG) <br>
 *Photo of Completed GUI*
 
 # Hardware Used
@@ -52,7 +52,7 @@ for j in range (8):
     button[i][j].grid(row=i, column=j)
 ```
 
-![GUI](JUS/FinalSemProj/resources/8x8btn.PNG) <br>
+![GUI](/resources/8x8btn.PNG) <br>
 *Photo of 8 x 8 Grid*
 
 <br>
