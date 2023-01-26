@@ -120,7 +120,7 @@ start = Button(frame5, text="Start!!",font=("Arial, 12"), bg='#50C878', width=13
 start.grid(row=0, column=3)
 ```
 
-image <br>
+![GUI](/resources/allbtn.PNG) <br>
 *Photo of all buttons*
 
 Code for Start btn
