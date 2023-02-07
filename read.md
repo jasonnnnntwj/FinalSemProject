@@ -110,9 +110,6 @@ white.grid(row=0, column=0)
 black = Button(frame3, text="Player 2", font=("Arial, 12"), bg='grey1', fg='white', width=13, height=2, command=lambda m=1:change_colour(m))
 black.grid(row=0, column=2)
 
-send = Button(frame3, text="Send!", font=("Arial, 12"), bg='#FAA0A0', width=13, height=2, command=sendImage)
-send.grid(row=0, column=1)
-
 reset = Button(frame4, text="Reset",font=("Arial, 12"), bg='#DE3163', width=13, height=2, command=resetgame)
 reset.grid(row=0, column=1)
 
@@ -145,34 +142,55 @@ def resetgame():
 
 Code for Send and Check win
 ```
-def sendImage():
-  global value
-  print("Image has been printed, the values are.....")
-  print(value)
+def checking():
+    if game_over == False:
+      for i in range(8):
+        for j in range(5):
+          if value[i][j] == value[i][j+1] and value[i][j+1] == value[i][j+2] and value[i][j+2] == value[i][j+3] and value[i][j+3] == value[i][j] != 50:
+            if value[i][j] == 0:
+              print("Player 1 Wins!!")
+              lastshow(1)
+              main.destroy()
+            elif value[i][j] == 90:
+              print("Player 2 Wins!!")
+              lastshow(2)
+              main.destroy()
 
-  if game_over == False:
+      for i in range(5):
+        for j in range(8):
+          if value[i][j] == value[i+1][j] and value[i+1][j] == value[i+2][j] and value[i+2][j] == value[i+3][j] and value[i+3][j] == value[i][j] != 50:
+            if value[i][j] == 0:
+              print("Player 1 Wins!!")
+              lastshow(1)
+              main.destroy()
+            elif value[i][j] == 90:
+              print("Player 2 Wins!!")
+              lastshow(2)
+              main.destroy()
 
-      for j in range(8-3):
-        for i in range(8):
-          if value[i][j] == value[i][j+1] and value[i][j+1] == value[i][j+2] and value[i][j+2] == button[i][j+3] :
-            return True
+      for i in range(5):
+        for j in range(5):
+          if value[i][j] == value[i+1][j+1] and value[i+1][j+1] == value[i+2][j+2] and value[i+2][j+2] == value[i+3][j+3] and value[i+3][j+3] == value[i][j] != 50:
+            if value[i][j] == 0:
+              print("Player 1 Wins!!")
+              lastshow(1)
+              main.destroy()
+            elif value[i][j] == 90:
+              print("Player 2 Wins!!")
+              lastshow(2)
+              main.destroy()
 
-      for j in range(8):
-        for i in range(8-3):
-          if value[i][j] == value[i+1][j] and value[i+1][j] == value[i+2][j] and value[i+2][j] == button[i+3][j] :
-            return True
-
-      for j in range(8-3):
-        for i in range(8-3):
-          if value[i][j] == value[i+1][j+1] and value[i+1][j+1] == value[i+2][j+2] and value[i+2][j+2] == value[i+3][j+3]:
-            return True
-
-      for j in range(8-3):
-        for i in range(3, 8):
-          if value[i][j] == value[i-1][j-1] and value[i-1][j-1] == value[i-2][j-2] and value[i-2][j-2] == value[i-3][j-3]:
-            return True
-  elif game_over == True:
-    main.destroy()  
+      for i in range(7, 3, -1):
+        for j in range(0, 4):
+          if value[i][j] == value[i-1][j+1] and value[i-1][j+1] == value[i-2][j+2] and value[i-2][j+2] == value[i-3][j+3] and value[i-3][j+3] == value[i][j] != 50:
+            if value[i][j] == 0:
+              print("Player 1 Wins!!")
+              lastshow(1)
+              main.destroy()
+            elif value[i][j] == 90:
+              print("Player 2 Wins!!")
+              lastshow(2)
+              main.destroy()
 ```
 
 Code to check for empty row <br>
@@ -183,7 +201,7 @@ def empty(board, col):
 ```
 
 Code to check for player's game piece <br>
-This will prevent the changing of player's colour and will only affect the default game board.
+This will prevent the changing of player's colour and will only affect the default game board. Automatically sends the image to the Panel.
 ```
 def drop(row, col, colour):
   if colour == 90:
@@ -194,6 +212,7 @@ def drop(row, col, colour):
     colours = 'grey99'
     button[row][col].config(bg=colours)
     value[row][col] = colour
+  sendImage()
 ```
 
 Code to check for max column <br>
